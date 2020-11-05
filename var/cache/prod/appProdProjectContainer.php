@@ -16,6 +16,6 @@ if (!\class_exists(appProdProjectContainer::class, false)) {
 
 return new \ContainerXlnudjs\appProdProjectContainer([
     'container.build_hash' => 'Xlnudjs',
-    'container.build_id' => '3ea66ff6',
-    'container.build_time' => 1604511584,
+    'container.build_id' => 'abef0253',
+    'container.build_time' => 1604600554,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerXlnudjs');
