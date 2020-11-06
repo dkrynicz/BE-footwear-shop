@@ -1,5 +1,5 @@
 /* Backup for localhost/
- *  at 1604636542
+ *  at 1604689606
  */
 
 SET NAMES 'utf8';
@@ -836,11 +836,12 @@ CREATE TABLE `ps_address` (
   KEY `id_manufacturer` (`id_manufacturer`),
   KEY `id_supplier` (`id_supplier`),
   KEY `id_warehouse` (`id_warehouse`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_address` VALUES
 ('3','14','35','0','0','0','0','supplier','Fashion','Kowalski','Jan','Ulica Złota 45/5',NULL,'10-100','Warszawa',NULL,'+48 123 456 789',NULL,NULL,NULL,'2020-11-03 08:09:32','2020-11-05 17:43:40','1','0'),
-('6','14','0','1','0','0','0','Mój adres',NULL,'Testowy','Test','ul. Testowa 12',NULL,'99-999','Test',NULL,NULL,NULL,NULL,NULL,'2020-11-06 04:45:53','2020-11-06 04:45:53','1','0');
+('6','14','0','1','0','0','0','Mój adres',NULL,'Testowy','Test','ul. Testowa 12',NULL,'99-999','Test',NULL,NULL,NULL,NULL,NULL,'2020-11-06 04:45:53','2020-11-06 04:45:53','1','0'),
+('7','14','0','2','0','0','0','Mój adres',NULL,'Testowa','Testa','ul. Testowa 11',NULL,'00-000','Test',NULL,NULL,NULL,NULL,NULL,'2020-11-06 19:55:49','2020-11-06 19:55:49','1','0');
 /* Scheme for table ps_address_format */
 DROP TABLE IF EXISTS `ps_address_format`;
 CREATE TABLE `ps_address_format` (
@@ -2365,7 +2366,7 @@ INSERT INTO `ps_badge` VALUES
 ('209','97','feature','36','4','10','0','0'),
 ('210','98','feature','36','5','20','0','0'),
 ('211','99','feature','36','6','20','0','0'),
-('212','100','feature','8','3','15','0','0'),
+('212','100','feature','8','3','15','0','1'),
 ('213','101','achievement','37','1','5','0','0'),
 ('214','102','achievement','37','2','5','0','0'),
 ('215','103','achievement','37','3','10','0','0'),
@@ -2782,11 +2783,12 @@ CREATE TABLE `ps_cart` (
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop_2` (`id_shop`,`date_upd`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_cart` VALUES
 ('1','1','1','3','{\"6\":\"3,\"}','1','6','6','1','1','1','f3abffcb4ac61190ffc32ca33fb0112a','0','0',NULL,'0','0','2020-11-06 04:45:01','2020-11-06 04:45:56','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"becfbe48d00d52ff0beacf43c3237ccec4807f35\"}'),
-('2','1','1','0','','1','6','6','1','1','2','f3abffcb4ac61190ffc32ca33fb0112a','0','0',NULL,'0','0','2020-11-06 05:15:41','2020-11-06 05:15:41',NULL);
+('2','1','1','0','','1','6','6','1','1','2','f3abffcb4ac61190ffc32ca33fb0112a','0','0',NULL,'0','0','2020-11-06 05:15:41','2020-11-06 05:15:41',NULL),
+('3','1','1','4','{\"7\":\"4,\"}','1','7','7','1','2','3','1b7b4a4c6123d7744a16fd34a56e76b5','0','0',NULL,'0','0','2020-11-06 19:55:16','2020-11-06 19:55:52','{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"16227df7c68e2999ec2732a25c7d151ce6f65d2e\"}');
 /* Scheme for table ps_cart_cart_rule */
 DROP TABLE IF EXISTS `ps_cart_cart_rule`;
 CREATE TABLE `ps_cart_cart_rule` (
@@ -2813,7 +2815,8 @@ CREATE TABLE `ps_cart_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_cart_product` VALUES
-('1','10','6','1','2','0','1','2020-11-06 04:45:26');
+('1','10','6','1','2','0','1','2020-11-06 04:45:26'),
+('3','1','7','1','52','0','1','2020-11-06 19:55:22');
 /* Scheme for table ps_cart_rule */
 DROP TABLE IF EXISTS `ps_cart_rule`;
 CREATE TABLE `ps_cart_rule` (
@@ -3061,8 +3064,10 @@ CREATE TABLE `ps_cms` (
   `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `indexation` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_cms`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
+INSERT INTO `ps_cms` VALUES
+('6','1','0','1','0');
 /* Scheme for table ps_cms_category */
 DROP TABLE IF EXISTS `ps_cms_category`;
 CREATE TABLE `ps_cms_category` (
@@ -3123,6 +3128,8 @@ CREATE TABLE `ps_cms_lang` (
   PRIMARY KEY (`id_cms`,`id_shop`,`id_lang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `ps_cms_lang` VALUES
+('6','1','1','Regulamin sklepu',NULL,'Regulamin korzystania z naszego sklepu','regulamin, terms, conditions','<h1><strong>Regulamin</strong></h1>\n<p>Tu znajdzie sie regulamin</p>','regulamin-sklepu');
 /* Scheme for table ps_cms_role */
 DROP TABLE IF EXISTS `ps_cms_role`;
 CREATE TABLE `ps_cms_role` (
@@ -3155,6 +3162,8 @@ CREATE TABLE `ps_cms_shop` (
   KEY `id_shop` (`id_shop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `ps_cms_shop` VALUES
+('6','1');
 /* Scheme for table ps_condition */
 DROP TABLE IF EXISTS `ps_condition`;
 CREATE TABLE `ps_condition` (
@@ -3195,7 +3204,7 @@ INSERT INTO `ps_condition` VALUES
 ('19','19','install',NULL,'>','0','1','time','1','1','2020-11-05 20:06:42','2020-11-05 20:06:42'),
 ('20','20','install',NULL,'>=','7',NULL,'time','1','0','2020-11-05 20:06:42','2020-11-06 00:00:37'),
 ('21','21','configuration','PS_LOGO','!=','logo.jpg','1','hook','actionAdminThemesControllerUpdate_optionsAfter','1','2020-11-05 20:06:42','2020-11-05 20:06:42'),
-('22','22','sql','SELECT COUNT(*) FROM PREFIX_theme WHERE directory != \"default\" AND directory != \"prestashop\" AND directory ! \"default-bootstrap\"','>','0','0','hook','actionObjectShopUpdateAfter','0','2020-11-05 20:06:42','2020-11-05 20:06:42'),
+('22','22','sql','SELECT COUNT(*) FROM PREFIX_theme WHERE directory != \"default\" AND directory != \"prestashop\" AND directory ! \"default-bootstrap\"','>','0','0','hook','actionObjectShopUpdateAfter','0','2020-11-05 20:06:42','2020-11-06 19:26:59'),
 ('23','23','configuration','PS_LOGGED_ON_ADDONS','==','1',NULL,'time','1','0','2020-11-05 20:06:42','2020-11-06 00:00:37'),
 ('24','24','configuration','PS_MULTISHOP_FEATURE_ACTIVE','==','1',NULL,'hook','actionAdminPreferencesControllerUpdate_optionsAfter','0','2020-11-05 20:06:42','2020-11-05 20:06:42'),
 ('25','25','sql','SELECT COUNT(*) FROM PREFIX_shop','>','1','1','hook','actionObjectShopAddAfter','0','2020-11-05 20:06:42','2020-11-05 20:06:42'),
@@ -3204,8 +3213,8 @@ INSERT INTO `ps_condition` VALUES
 ('28','28','sql','SELECT COUNT(*) FROM PREFIX_shop_group','>','1','1','hook','actionObjectShopGroupAddAfter','0','2020-11-05 20:06:42','2020-11-05 20:06:42'),
 ('29','29','sql','SELECT COUNT(distinct m.id_module) FROM PREFIX_hook h LEFT JOIN PREFIX_hook_module hm ON h.id_hook = hm.id_hook LEFT JOIN PREFIX_module m ON hm.id_module = m.id_module\r\nWHERE (h.name = \"displayPayment\" OR h.name = \"payment\") AND m.name NOT IN (\"bankwire\", \"cheque\", \"cashondelivery\")','>','2','0','hook','actionModuleInstallAfter','0','2020-11-05 20:06:43','2020-11-05 22:55:05'),
 ('30','30','sql','SELECT COUNT(*) FROM PREFIX_carrier WHERE name NOT IN (\"0\", \"My carrier\")','>','2','0','hook','actionObjectCarrierAddAfter','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
-('31','31','sql','SELECT SUM(total_paid_tax_excl / c.conversion_rate)\r\nFROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1 AND reference != \"XKBKNABJK\"','>=','200','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('32','32','sql',' 	SELECT SUM(total_paid_tax_excl / c.conversion_rate) FROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1 AND reference != \"XKBKNABJK\"','>=','2000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
+('31','31','sql','SELECT SUM(total_paid_tax_excl / c.conversion_rate)\r\nFROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1 AND reference != \"XKBKNABJK\"','>=','200','161','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('32','32','sql',' 	SELECT SUM(total_paid_tax_excl / c.conversion_rate) FROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1 AND reference != \"XKBKNABJK\"','>=','2000','161','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
 ('33','33','sql',' 	SELECT SUM(total_paid_tax_excl / c.conversion_rate) FROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1 AND reference != \"XKBKNABJK\"','>=','20000','0','time','1','0','2020-11-05 20:06:43','2020-11-06 00:00:37'),
 ('34','34','sql',' 	SELECT SUM(total_paid_tax_excl / c.conversion_rate) FROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1','>=','200000','0','time','7','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('35','35','sql',' 	SELECT SUM(total_paid_tax_excl / c.conversion_rate) FROM PREFIX_orders o INNER JOIN PREFIX_currency c ON c.id_currency = o.id_currency WHERE valid = 1','>=','2000000','0','time','7','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
@@ -3221,20 +3230,20 @@ INSERT INTO `ps_condition` VALUES
 ('45','45','sql','SELECT COUNT(*) FROM PREFIX_guest','>=','100000','3','time','3','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('46','46','sql','SELECT COUNT(*) FROM PREFIX_guest','>=','1000000','3','time','4','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('47','47','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','2','2','hook','actionObjectCartAddAfter','1','2020-11-05 20:06:43','2020-11-06 05:15:41'),
-('48','48','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','10','2','hook','actionObjectCartAddAfter','0','2020-11-05 20:06:43','2020-11-06 05:16:08'),
-('49','49','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','100','2','hook','actionObjectCartAddAfter','0','2020-11-05 20:06:43','2020-11-06 05:16:08'),
+('48','48','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','10','3','hook','actionObjectCartAddAfter','0','2020-11-05 20:06:43','2020-11-06 19:55:16'),
+('49','49','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','100','3','hook','actionObjectCartAddAfter','0','2020-11-05 20:06:43','2020-11-06 19:55:16'),
 ('50','50','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','1000','2','time','1','0','2020-11-05 20:06:43','2020-11-06 05:16:08'),
 ('51','51','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','10000','2','time','4','0','2020-11-05 20:06:43','2020-11-06 05:16:08'),
 ('52','52','sql','SELECT COUNT(*) FROM PREFIX_cart WHERE secure_key != \"b44a6d9efd7a0076a0fbce6b15eaf3b1\"','>=','100000','2','time','8','0','2020-11-05 20:06:43','2020-11-06 05:16:08'),
 ('53','53','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','1','1','hook','actionObjectOrderAddAfter','1','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('54','54','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','10','1','hook','actionObjectOrderAddAfter','0','2020-11-05 20:06:43','2020-11-06 04:46:16'),
-('55','55','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','100','1','hook','actionObjectOrderAddAfter','0','2020-11-05 20:06:43','2020-11-06 04:46:16'),
+('54','54','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','10','2','hook','actionObjectOrderAddAfter','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('55','55','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','100','2','hook','actionObjectOrderAddAfter','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
 ('56','56','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','1000','1','time','2','0','2020-11-05 20:06:43','2020-11-06 04:46:16'),
 ('57','57','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','10000','1','time','4','0','2020-11-05 20:06:43','2020-11-06 04:46:16'),
 ('58','58','sql','SELECT COUNT(*) FROM PREFIX_orders WHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\")','>=','100000','1','time','8','0','2020-11-05 20:06:43','2020-11-06 04:46:16'),
 ('59','59','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','1','1','hook','actionObjectCustomerAddAfter','1','2020-11-05 20:06:43','2020-11-05 20:06:43'),
-('60','60','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','10','1','hook','actionObjectCustomerAddAfter','0','2020-11-05 20:06:43','2020-11-06 04:45:01'),
-('61','61','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','100','1','hook','actionObjectCustomerAddAfter','0','2020-11-05 20:06:43','2020-11-06 04:45:01'),
+('60','60','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','10','2','hook','actionObjectCustomerAddAfter','0','2020-11-05 20:06:43','2020-11-06 19:55:15'),
+('61','61','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','100','2','hook','actionObjectCustomerAddAfter','0','2020-11-05 20:06:43','2020-11-06 19:55:16'),
 ('62','62','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','1000','0','time','1','0','2020-11-05 20:06:43','2020-11-06 00:00:37'),
 ('63','63','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','10000','1','time','2','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('64','64','sql','SELECT COUNT(*) FROM PREFIX_customer WHERE email != \"pub@prestashop.com\"','>=','100000','1','time','4','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
@@ -3244,13 +3253,13 @@ INSERT INTO `ps_condition` VALUES
 ('68','68','sql','SELECT COUNT(*) FROM PREFIX_customer_thread','>=','1000','0','time','2','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('69','69','sql','SELECT COUNT(*) FROM PREFIX_customer_thread','>=','10000','0','time','4','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('70','70','sql','SELECT COUNT(*) FROM PREFIX_customer_thread','>=','100000','0','time','8','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
-('71','76','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"CA\",\r\n\"GL\",\r\n\"PM\",\r\n\"US\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('72','79','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"UM\",\r\n\"AS\",\r\n\"AU\",\r\n\"CK\",\r\n\"FJ\",\r\n\"FM\",\r\n\"GU\",\r\n\"KI\",\r\n\"MH,\"\r\n\"MP\",\r\n\"NC\",\r\n\"NF\",\r\n\"NR\",\r\n\"NU\",\r\n\"NZ\",\r\n\"PF\",\r\n\"PG\",\r\n\"PN\",\r\n\"PW\",\r\n\"SB\",\r\n\"TK\",\r\n\"TO\",\r\n\"TV\",\r\n\"VU\",\r\n\"WF\",\r\n\"WS\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('73','85','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"KG\",\r\n\"KZ\",\r\n\"TJ\",\r\n\"TM\",\r\n\"UZ\",\r\n\"AE\",\r\n\"AM\",\r\n\"AZ\",\r\n\"BH\",\r\n\"CY\",\r\n\"GE\",\r\n\"IL\",\r\n\"IQ\",\r\n\"IR\",\r\n\"JO\",\r\n\"KW\",\r\n\"LB\",\r\n\"OM\",\r\n\"QA\",\r\n\"SA\",\r\n\"SY\",\r\n\"TR\",\r\n\"YE\",\r\n\"AF\",\r\n\"BD\",\r\n\"BT\",\r\n\"IN\",\r\n\"IO\",\r\n\"LK\",\r\n\"MV\",\r\n\"NP\",\r\n\"PK\",\r\n\"CN\",\r\n\"HK\",\r\n\"JP\",\r\n\"KP\",\r\n\"KR\",\r\n\"MO\",\r\n\"TW\",\r\n\"MN\",\r\n\"BN\",\r\n\"CC\",\r\n\"CX\",\r\n\"ID\",\r\n\"KH\",\r\n\"LA\",\r\n\"MM\",\r\n\"MY\",\r\n\"PH\",\r\n\"SG\",\r\n\"TH\",\r\n\"TP\",\r\n\"VN\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('74','86','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BZ\",\r\n\"CR\",\r\n\"GT\",\r\n\"HN\",\r\n\"MX\",\r\n\"NI\",\r\n\"PA\",\r\n\"SV\",\r\n\"AG\",\r\n\"AI\",\r\n\"AN\",\r\n\"AW\",\r\n\"BB\",\r\n\"BM\",\r\n\"BS\",\r\n\"CU\",\r\n\"DM\",\r\n\"DO\",\r\n\"GD\",\r\n\"GP\",\r\n\"HT\",\r\n\"JM\",\r\n\"KN\",\r\n\"KY\",\r\n\"LC\",\r\n\"MQ\",\r\n\"MS\",\r\n\"PR\",\r\n\"TC\",\r\n\"TT\",\r\n\"VC\",\r\n\"VG\",\r\n\"VI\",\r\n\"AR\",\r\n\"BO\",\r\n\"BR\",\r\n\"CL\",\r\n\"CO\",\r\n\"EC\",\r\n\"FK\",\r\n\"GF\",\r\n\"GY\",\r\n\"PE\",\r\n\"PY\",\r\n\"SR\",\r\n\"UY\",\r\n\"VE\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('75','87','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BE\",\r\n\"DE\",\r\n\"FR\",\r\n\"FX\",\r\n\"GB\",\r\n\"IE\",\r\n\"LU\",\r\n\"MC\",\r\n\"NL\",\r\n\"IT\",\r\n\"MT\",\r\n\"SM\",\r\n\"VA\",\r\n\"AD\",\r\n\"ES\",\r\n\"GI\",\r\n\"PT\",\r\n\"BY\",\r\n\"EE\",\r\n\"LT\",\r\n\"LV\",\r\n\"MD\",\r\n\"PL\",\r\n\"UA\",\r\n\"AL\",\r\n\"BA\",\r\n\"BG\",\r\n\"GR\",\r\n\"HR\",\r\n\"MK\",\r\n\"RO\",\r\n\"SI\",\r\n\"YU\",\r\n\"RU\",\r\n\"AT\",\r\n\"CH\",\r\n\"CZ\",\r\n\"HU\",\r\n\"LI\",\r\n\"SK\",\r\n\"DK\",\r\n\"FI\",\r\n\"FO\",\r\n\"IS\",\r\n\"NO\",\r\n\"SE\",\r\n\"SJ\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('76','88','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BI\",\r\n\"CF\",\r\n\"CG\",\r\n\"RW\",\r\n\"TD\",\r\n\"ZR\",\r\n\"DJ\",\r\n\"ER\",\r\n\"ET\",\r\n\"KE\",\r\n\"SO\",\r\n\"TZ\",\r\n\"UG\",\r\n\"KM\",\r\n\"MG\",\r\n\"MU\",\r\n\"RE\",\r\n\"SC\",\r\n\"YT\",\r\n\"AO\",\r\n\"BW\",\r\n\"LS\",\r\n\"MW\",\r\n\"MZ\",\r\n\"NA\",\r\n\"SZ\",\r\n\"ZA\",\r\n\"ZM\",\r\n\"ZW\",\r\n\"BF\",\r\n\"BJ\",\r\n\"CI\",\r\n\"CM\",\r\n\"CV\",\r\n\"GA\",\r\n\"GH\",\r\n\"GM\",\r\n\"GN\",\r\n\"GQ\",\r\n\"GW\",\r\n\"LR\",\r\n\"ML\",\r\n\"MR\",\r\n\"NE\",\r\n\"NG\",\r\n\"SL\",\r\n\"SN\",\r\n\"ST\",\r\n\"TG\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('77','89','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"DZ\",\r\n\"EG\",\r\n\"EH\",\r\n\"LY\",\r\n\"MA\",\r\n\"SD\",\r\n\"TN\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
+('71','76','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"CA\",\r\n\"GL\",\r\n\"PM\",\r\n\"US\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('72','79','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"UM\",\r\n\"AS\",\r\n\"AU\",\r\n\"CK\",\r\n\"FJ\",\r\n\"FM\",\r\n\"GU\",\r\n\"KI\",\r\n\"MH,\"\r\n\"MP\",\r\n\"NC\",\r\n\"NF\",\r\n\"NR\",\r\n\"NU\",\r\n\"NZ\",\r\n\"PF\",\r\n\"PG\",\r\n\"PN\",\r\n\"PW\",\r\n\"SB\",\r\n\"TK\",\r\n\"TO\",\r\n\"TV\",\r\n\"VU\",\r\n\"WF\",\r\n\"WS\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('73','85','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"KG\",\r\n\"KZ\",\r\n\"TJ\",\r\n\"TM\",\r\n\"UZ\",\r\n\"AE\",\r\n\"AM\",\r\n\"AZ\",\r\n\"BH\",\r\n\"CY\",\r\n\"GE\",\r\n\"IL\",\r\n\"IQ\",\r\n\"IR\",\r\n\"JO\",\r\n\"KW\",\r\n\"LB\",\r\n\"OM\",\r\n\"QA\",\r\n\"SA\",\r\n\"SY\",\r\n\"TR\",\r\n\"YE\",\r\n\"AF\",\r\n\"BD\",\r\n\"BT\",\r\n\"IN\",\r\n\"IO\",\r\n\"LK\",\r\n\"MV\",\r\n\"NP\",\r\n\"PK\",\r\n\"CN\",\r\n\"HK\",\r\n\"JP\",\r\n\"KP\",\r\n\"KR\",\r\n\"MO\",\r\n\"TW\",\r\n\"MN\",\r\n\"BN\",\r\n\"CC\",\r\n\"CX\",\r\n\"ID\",\r\n\"KH\",\r\n\"LA\",\r\n\"MM\",\r\n\"MY\",\r\n\"PH\",\r\n\"SG\",\r\n\"TH\",\r\n\"TP\",\r\n\"VN\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('74','86','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BZ\",\r\n\"CR\",\r\n\"GT\",\r\n\"HN\",\r\n\"MX\",\r\n\"NI\",\r\n\"PA\",\r\n\"SV\",\r\n\"AG\",\r\n\"AI\",\r\n\"AN\",\r\n\"AW\",\r\n\"BB\",\r\n\"BM\",\r\n\"BS\",\r\n\"CU\",\r\n\"DM\",\r\n\"DO\",\r\n\"GD\",\r\n\"GP\",\r\n\"HT\",\r\n\"JM\",\r\n\"KN\",\r\n\"KY\",\r\n\"LC\",\r\n\"MQ\",\r\n\"MS\",\r\n\"PR\",\r\n\"TC\",\r\n\"TT\",\r\n\"VC\",\r\n\"VG\",\r\n\"VI\",\r\n\"AR\",\r\n\"BO\",\r\n\"BR\",\r\n\"CL\",\r\n\"CO\",\r\n\"EC\",\r\n\"FK\",\r\n\"GF\",\r\n\"GY\",\r\n\"PE\",\r\n\"PY\",\r\n\"SR\",\r\n\"UY\",\r\n\"VE\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('75','87','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BE\",\r\n\"DE\",\r\n\"FR\",\r\n\"FX\",\r\n\"GB\",\r\n\"IE\",\r\n\"LU\",\r\n\"MC\",\r\n\"NL\",\r\n\"IT\",\r\n\"MT\",\r\n\"SM\",\r\n\"VA\",\r\n\"AD\",\r\n\"ES\",\r\n\"GI\",\r\n\"PT\",\r\n\"BY\",\r\n\"EE\",\r\n\"LT\",\r\n\"LV\",\r\n\"MD\",\r\n\"PL\",\r\n\"UA\",\r\n\"AL\",\r\n\"BA\",\r\n\"BG\",\r\n\"GR\",\r\n\"HR\",\r\n\"MK\",\r\n\"RO\",\r\n\"SI\",\r\n\"YU\",\r\n\"RU\",\r\n\"AT\",\r\n\"CH\",\r\n\"CZ\",\r\n\"HU\",\r\n\"LI\",\r\n\"SK\",\r\n\"DK\",\r\n\"FI\",\r\n\"FO\",\r\n\"IS\",\r\n\"NO\",\r\n\"SE\",\r\n\"SJ\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('76','88','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"BI\",\r\n\"CF\",\r\n\"CG\",\r\n\"RW\",\r\n\"TD\",\r\n\"ZR\",\r\n\"DJ\",\r\n\"ER\",\r\n\"ET\",\r\n\"KE\",\r\n\"SO\",\r\n\"TZ\",\r\n\"UG\",\r\n\"KM\",\r\n\"MG\",\r\n\"MU\",\r\n\"RE\",\r\n\"SC\",\r\n\"YT\",\r\n\"AO\",\r\n\"BW\",\r\n\"LS\",\r\n\"MW\",\r\n\"MZ\",\r\n\"NA\",\r\n\"SZ\",\r\n\"ZA\",\r\n\"ZM\",\r\n\"ZW\",\r\n\"BF\",\r\n\"BJ\",\r\n\"CI\",\r\n\"CM\",\r\n\"CV\",\r\n\"GA\",\r\n\"GH\",\r\n\"GM\",\r\n\"GN\",\r\n\"GQ\",\r\n\"GW\",\r\n\"LR\",\r\n\"ML\",\r\n\"MR\",\r\n\"NE\",\r\n\"NG\",\r\n\"SL\",\r\n\"SN\",\r\n\"ST\",\r\n\"TG\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('77','89','sql','SELECT IFNULL(id_order, 0) FROM PREFIX_orders o LEFT JOIN PREFIX_address a ON o.id_address_delivery = a.id_address LEFT JOIN PREFIX_country c ON c.id_country = a.id_country WHERE o.valid = 1 AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\" AND c.iso_code IN (\r\n\"DZ\",\r\n\"EG\",\r\n\"EH\",\r\n\"LY\",\r\n\"MA\",\r\n\"SD\",\r\n\"TN\"\r\n)','!=','0','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
 ('78','90','sql','SELECT COUNT(*) FROM PREFIX_employee','>=','2','1','hook','actionObjectEmployeeAddAfter','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('79','91','sql','SELECT COUNT(*) FROM PREFIX_employee','>=','3','1','hook','actionObjectEmployeeAddAfter','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('80','92','sql','SELECT COUNT(*) FROM PREFIX_employee','>=','5','1','hook','actionObjectEmployeeAddAfter','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
@@ -3263,7 +3272,7 @@ INSERT INTO `ps_condition` VALUES
 ('87','99','sql','SELECT COUNT(*) FROM PREFIX_image','>=','1000','30','time','2','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('88','100','sql','SELECT COUNT(*) FROM PREFIX_image','>=','10000','30','time','4','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('89','101','sql','SELECT COUNT(*) FROM PREFIX_image','>=','50000','30','time','8','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
-('90','102','sql','SELECT id_cms FROM PREFIX_cms WHERE id_cms > 5','>','0','0','hook','actionObjectCMSAddAfter','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
+('90','102','sql','SELECT id_cms FROM PREFIX_cms WHERE id_cms > 5','>','0','6','hook','actionObjectCMSAddAfter','1','2020-11-05 20:06:43','2020-11-06 19:26:57'),
 ('91','103','sql','SELECT COUNT(*) FROM PREFIX_cart_rule','>=','1','0','hook','actionObjectCartRuleAddAfter 	','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('92','104','sql','SELECT COUNT(*) FROM PREFIX_cart_rule','>=','10','0','hook','actionObjectCartRuleAddAfter 	','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('93','105','sql','SELECT COUNT(*) FROM PREFIX_cart_rule','>=','100','0','hook','actionObjectCartRuleAddAfter 	','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
@@ -3271,11 +3280,11 @@ INSERT INTO `ps_condition` VALUES
 ('95','107','sql','SELECT COUNT(*) FROM PREFIX_cart_rule','>=','500','0','hook','actionObjectCartRuleAddAfter 	','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('96','108','sql','SELECT COUNT(*) FROM PREFIX_cart_rule','>=','5000','0','hook','actionObjectCartRuleAddAfter 	','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('97','109','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','1','0','hook','newOrder','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
-('98','110','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','10','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('99','111','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','100','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('100','112','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','10000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('101','113','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','1000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
-('102','114','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','5000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 04:46:02'),
+('98','110','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','10','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('99','111','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','100','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('100','112','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','10000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('101','113','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','1000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
+('102','114','sql','SELECT COUNT(*) FROM PREFIX_orders o INNER JOIN PREFIX_address a ON a.id_address = o.id_address_delivery\r\nWHERE reference NOT IN (\"XKBKNABJK\", \"OHSATSERP\", \"FFATNOMMJ\", \"UOYEVOLI\", \"KHWLILZLL\") AND a.id_country != \"{config}PS_COUNTRY_DEFAULT{/config}\"','>=','5000','0','hook','actionOrderStatusUpdate','0','2020-11-05 20:06:43','2020-11-06 20:05:45'),
 ('103','132','sql','SELECT count(id_configuration) FROM PREFIX_configuration WHERE `name` = \'PS_SHOP_DOMAIN\' AND value IN (\'127.0.0.1\', \'localhost\' )','==','1',NULL,'time','1','0','2020-11-05 20:06:43','2020-11-05 20:06:43'),
 ('104','136','sql','SELECT COUNT( id_module ) FROM PREFIX_module WHERE `name` like \"%ebay%\"','>=','1','0','hook','actionModuleInstallAfter','0','2020-11-05 20:06:43','2020-11-05 22:55:05'),
 ('105','140','sql','SELECT COUNT( id_module ) FROM PREFIX_module WHERE `name` like \"%moneybookers%\"','>=','1','0','hook','actionModuleInstallAfter','0','2020-11-05 20:06:43','2020-11-05 22:55:05'),
@@ -4034,8 +4043,8 @@ INSERT INTO `ps_configuration` VALUES
 ('338',NULL,NULL,'CONF_PS_WIREPAYMENT_VAR_FOREIGN','2','2020-11-03 08:08:50','2020-11-03 08:08:50'),
 ('339',NULL,NULL,'GF_INSTALL_CALC','1','2020-11-03 08:09:09','2020-11-03 08:13:59'),
 ('340',NULL,NULL,'GF_CURRENT_LEVEL','1','2020-11-03 08:09:09','2020-11-03 08:09:09'),
-('341',NULL,NULL,'GF_CURRENT_LEVEL_PERCENT','75','2020-11-03 08:09:09','2020-11-06 05:16:08'),
-('342',NULL,NULL,'GF_NOTIFICATION','1','2020-11-03 08:09:09','2020-11-06 05:16:08'),
+('341',NULL,NULL,'GF_CURRENT_LEVEL_PERCENT','90','2020-11-03 08:09:09','2020-11-06 19:26:59'),
+('342',NULL,NULL,'GF_NOTIFICATION','2','2020-11-03 08:09:09','2020-11-06 19:26:59'),
 ('343',NULL,NULL,'EMARKETING_SHOPTOKEN',NULL,'2020-11-03 08:09:09','2020-11-03 08:09:09'),
 ('344',NULL,NULL,'EMARKETING_AUTHORIZE_JWT',NULL,'2020-11-03 08:09:09','2020-11-03 08:09:09'),
 ('345',NULL,NULL,'EMARKETING_GLOBAL_SITE_TRACKER',NULL,'2020-11-03 08:09:09','2020-11-03 08:09:09'),
@@ -4061,7 +4070,7 @@ INSERT INTO `ps_configuration` VALUES
 ('365',NULL,NULL,'PS_LAYERED_FILTER_SHOW_OUT_OF_STOCK_LAST','0','2020-11-03 08:09:44','2020-11-03 08:09:44'),
 ('366',NULL,NULL,'PS_LAYERED_FILTER_BY_DEFAULT_CATEGORY','0','2020-11-03 08:09:44','2020-11-03 08:09:44'),
 ('367',NULL,NULL,'PS_LAYERED_INDEXED','1','2020-11-03 08:09:47','2020-11-03 08:09:47'),
-('368',NULL,NULL,'GF_NOT_VIEWED_BADGE','169','2020-11-03 08:13:59','2020-11-06 05:16:08'),
+('368',NULL,NULL,'GF_NOT_VIEWED_BADGE','212','2020-11-03 08:13:59','2020-11-06 19:26:59'),
 ('369',NULL,NULL,'ONBOARDINGV2_SHUT_DOWN','0','2020-11-03 08:14:00','2020-11-04 09:07:29'),
 ('370',NULL,NULL,'PS_SHOWCASECARD_CATEGORIES_CLOSED','1','2020-11-04 08:56:56','2020-11-04 08:56:56'),
 ('371',NULL,NULL,'ONBOARDINGV2_CURRENT_STEP','14','2020-11-04 09:07:29','2020-11-04 09:12:05'),
@@ -4250,7 +4259,7 @@ CREATE TABLE `ps_connections` (
   KEY `id_guest` (`id_guest`),
   KEY `date_add` (`date_add`),
   KEY `id_page` (`id_page`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /* Scheme for table ps_connections_page */
 DROP TABLE IF EXISTS `ps_connections_page`;
@@ -5175,10 +5184,11 @@ CREATE TABLE `ps_customer` (
   KEY `id_gender` (`id_gender`),
   KEY `id_shop_group` (`id_shop_group`),
   KEY `id_shop` (`id_shop`,`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_customer` VALUES
-('1','1','1','1','3','1','0',NULL,NULL,NULL,'Test','Testowy','wisavi7282@akxpert.com','$2y$10$K22fICOXsQplyvTE/lwsyu83YqY03brNkcdh7H/k12CyEfhbxU1am','2020-11-05 22:45:01','1995-05-25','1',NULL,'2020-11-06 04:45:01','1',NULL,'0.000000','0','0','f3abffcb4ac61190ffc32ca33fb0112a',NULL,'1','0','0','2020-11-06 04:45:01','2020-11-06 04:45:01',NULL,'0000-00-00 00:00:00');
+('1','1','1','1','3','1','0',NULL,NULL,NULL,'Test','Testowy','wisavi7282@akxpert.com','$2y$10$K22fICOXsQplyvTE/lwsyu83YqY03brNkcdh7H/k12CyEfhbxU1am','2020-11-05 22:45:01','1995-05-25','1',NULL,'2020-11-06 04:45:01','1',NULL,'0.000000','0','0','f3abffcb4ac61190ffc32ca33fb0112a',NULL,'1','0','0','2020-11-06 04:45:01','2020-11-06 04:45:01',NULL,'0000-00-00 00:00:00'),
+('2','1','1','2','3','1','0',NULL,NULL,NULL,'Testa','Testowa','testa@testowa.test','$2y$10$dOPcddk2qEfQ/OE7bf5Hy.sbmcg84A2jN1tB5y9C8vvFlw4wkyAn.','2020-11-06 13:55:15','2006-12-21','0',NULL,'0000-00-00 00:00:00','0',NULL,'0.000000','0','0','1b7b4a4c6123d7744a16fd34a56e76b5',NULL,'1','0','0','2020-11-06 19:55:15','2020-11-06 19:55:15',NULL,'0000-00-00 00:00:00');
 /* Scheme for table ps_customer_group */
 DROP TABLE IF EXISTS `ps_customer_group`;
 CREATE TABLE `ps_customer_group` (
@@ -5190,7 +5200,8 @@ CREATE TABLE `ps_customer_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_customer_group` VALUES
-('1','3');
+('1','3'),
+('2','3');
 /* Scheme for table ps_customer_message */
 DROP TABLE IF EXISTS `ps_customer_message`;
 CREATE TABLE `ps_customer_message` (
@@ -5224,11 +5235,12 @@ CREATE TABLE `ps_customer_session` (
   `id_customer` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_customer_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_customer_session` VALUES
 ('1','1','31aa2afcc67fb6850adca60886c672fd85ed77b0'),
-('2','1','6372f7828f9e19b92a9e6609155d4c1699c8d199');
+('2','1','6372f7828f9e19b92a9e6609155d4c1699c8d199'),
+('3','2','026e8c98baa98bcc58ad6ba2d51b2911b1c1f41a');
 /* Scheme for table ps_customer_thread */
 DROP TABLE IF EXISTS `ps_customer_thread`;
 CREATE TABLE `ps_customer_thread` (
@@ -5392,7 +5404,7 @@ CREATE TABLE `ps_employee` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_employee` VALUES
-('1','1','1','Lato','Robert','robertlato93@gmail.com','$2y$10$UNEF0/ZWbVNHna0G9gDjiO7n/8xLNSGw6P37qRsKDsDNZNC6nD.vO','2020-11-03 02:08:35','2020-10-03','2020-11-03','0000-00-00','0000-00-00','1',NULL,NULL,'default','theme.css','1','0','1','1','1','1','0','1','2020-11-06',NULL,'0000-00-00 00:00:00');
+('1','1','1','Lato','Robert','robertlato93@gmail.com','$2y$10$UNEF0/ZWbVNHna0G9gDjiO7n/8xLNSGw6P37qRsKDsDNZNC6nD.vO','2020-11-03 02:08:35','2020-10-03','2020-11-03','0000-00-00','0000-00-00','1',NULL,NULL,'default','theme.css','1','0','1','1','1','1','0','2','2020-11-06',NULL,'0000-00-00 00:00:00');
 /* Scheme for table ps_employee_session */
 DROP TABLE IF EXISTS `ps_employee_session`;
 CREATE TABLE `ps_employee_session` (
@@ -5400,14 +5412,14 @@ CREATE TABLE `ps_employee_session` (
   `id_employee` int(10) unsigned DEFAULT NULL,
   `token` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_employee_session`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_employee_session` VALUES
 ('5','1','061a0d18047b7ab6003b8015b05554f08ee61979'),
 ('6','1','9a0e759d3f90d048c5946f0978602c2777868d5f'),
 ('7','1','848a48b229b69e167fefabca325f3741fd4c00bd'),
 ('10','1','dce3f130a640f44a355449e6b8ed179355e09db6'),
-('11','1','5b8c3bd7b7e66eb2fe1c1c8cf992126edfe9f492');
+('12','1','044a4d51c764f4da3fa2d79e1da0c55053761178');
 /* Scheme for table ps_employee_shop */
 DROP TABLE IF EXISTS `ps_employee_shop`;
 CREATE TABLE `ps_employee_shop` (
@@ -5583,7 +5595,7 @@ CREATE TABLE `ps_guest` (
   KEY `id_customer` (`id_customer`),
   KEY `id_operating_system` (`id_operating_system`),
   KEY `id_web_browser` (`id_web_browser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /* Scheme for table ps_homeslider */
 DROP TABLE IF EXISTS `ps_homeslider`;
@@ -7033,7 +7045,7 @@ CREATE TABLE `ps_link_block` (
 
 INSERT INTO `ps_link_block` VALUES
 ('1','35','0','{\"cms\":[false],\"product\":[\"prices-drop\",\"new-products\",\"best-sales\"],\"static\":[false]}'),
-('2','35','1','{\"cms\":[\"1\",\"2\",\"3\",\"4\",\"5\"],\"product\":[false],\"static\":[\"contact\",\"sitemap\",\"stores\"]}');
+('2','35','1','{\"cms\":[\"6\"],\"static\":[\"contact\",\"sitemap\",\"stores\"],\"product\":[false]}');
 /* Scheme for table ps_link_block_lang */
 DROP TABLE IF EXISTS `ps_link_block_lang`;
 CREATE TABLE `ps_link_block_lang` (
@@ -7089,7 +7101,7 @@ CREATE TABLE `ps_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=360 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=362 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_log` VALUES
 ('1','1','0','Exporting mail with theme modern for language Polski (Polish)',NULL,'0','0','2020-11-03 08:08:20','2020-11-03 08:08:20'),
@@ -7451,7 +7463,9 @@ INSERT INTO `ps_log` VALUES
 ('356','1','0','Product modification','Product','2','1','2020-11-05 23:51:31','2020-11-05 23:51:31'),
 ('357','1','0','Połączenie z panelem administracyjnym z ::1',NULL,'0','1','2020-11-05 23:52:44','2020-11-05 23:52:44'),
 ('358','1','0','Połączenie z panelem administracyjnym z ::1',NULL,'0','1','2020-11-06 04:34:08','2020-11-06 04:34:08'),
-('359','1','0','Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart','1','0','2020-11-06 04:46:03','2020-11-06 04:46:03');
+('359','1','0','Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart','1','0','2020-11-06 04:46:03','2020-11-06 04:46:03'),
+('360','1','0','Połączenie z panelem administracyjnym z ::1',NULL,'0','1','2020-11-06 19:18:50','2020-11-06 19:18:50'),
+('361','1','0','Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart','Cart','3','0','2020-11-06 20:05:46','2020-11-06 20:05:46');
 /* Scheme for table ps_mail */
 DROP TABLE IF EXISTS `ps_mail`;
 CREATE TABLE `ps_mail` (
@@ -8235,7 +8249,7 @@ INSERT INTO `ps_module_history` VALUES
 ('4','1','30','2020-11-05 22:35:43','2020-11-05 22:35:43'),
 ('5','1','61','2020-11-05 23:01:45','2020-11-06 05:03:18'),
 ('6','1','16','2020-11-06 05:03:44','2020-11-06 05:03:44'),
-('7','1','23','2020-11-06 05:04:39','2020-11-06 05:16:33');
+('7','1','23','2020-11-06 05:04:39','2020-11-06 19:36:24');
 /* Scheme for table ps_module_preference */
 DROP TABLE IF EXISTS `ps_module_preference`;
 CREATE TABLE `ps_module_preference` (
@@ -8356,10 +8370,11 @@ CREATE TABLE `ps_order_carrier` (
   KEY `id_order` (`id_order`),
   KEY `id_carrier` (`id_carrier`),
   KEY `id_order_invoice` (`id_order_invoice`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_order_carrier` VALUES
-('1','1','3','1','0.000000','0.000000','0.000000',NULL,'2020-11-06 04:46:02');
+('1','1','3','1','0.000000','0.000000','0.000000',NULL,'2020-11-06 04:46:02'),
+('2','2','4','0','0.000000','30.000000','36.900000',NULL,'2020-11-06 20:05:45');
 /* Scheme for table ps_order_cart_rule */
 DROP TABLE IF EXISTS `ps_order_cart_rule`;
 CREATE TABLE `ps_order_cart_rule` (
@@ -8431,10 +8446,11 @@ CREATE TABLE `ps_order_detail` (
   KEY `product_attribute_id` (`product_attribute_id`),
   KEY `id_tax_rules_group` (`id_tax_rules_group`),
   KEY `id_order_id_order_detail` (`id_order`,`id_order_detail`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_order_detail` VALUES
-('1','1','1','0','1','10','2','0','Klapki CROCS - Rozmiar : 40','1','1','0','0','0','161.788618','0.00','0.000000','0.000000','0.000000','0.00','0.000000',NULL,NULL,NULL,NULL,NULL,'0.000000','1','0','','0.000','0.000000','0.000','0',NULL,'0','0000-00-00 00:00:00','199.000000','161.790000','199.000000','161.788618','0.000000','0.000000','0.000000','161.788618','0.000000');
+('1','1','1','0','1','10','2','0','Klapki CROCS - Rozmiar : 40','1','1','0','0','0','161.788618','0.00','0.000000','0.000000','0.000000','0.00','0.000000',NULL,NULL,NULL,NULL,NULL,'0.000000','1','0','','0.000','0.000000','0.000','0',NULL,'0','0000-00-00 00:00:00','199.000000','161.790000','199.000000','161.788618','0.000000','0.000000','0.000000','161.788618','0.000000'),
+('2','2','0','0','1','1','52','0','Sandały BALDOWSKI - Rozmiar : 37','1','1','0','0','0','283.739837','0.00','0.000000','0.000000','0.000000','0.00','0.000000',NULL,NULL,NULL,NULL,NULL,'0.000000','1','0','','0.000','0.000000','0.000','0',NULL,'0','0000-00-00 00:00:00','349.000000','283.740000','349.000000','283.739837','0.000000','0.000000','0.000000','283.739837','0.000000');
 /* Scheme for table ps_order_detail_tax */
 DROP TABLE IF EXISTS `ps_order_detail_tax`;
 CREATE TABLE `ps_order_detail_tax` (
@@ -8447,7 +8463,8 @@ CREATE TABLE `ps_order_detail_tax` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_order_detail_tax` VALUES
-('1','1','37.211382','37.210000');
+('1','1','37.211382','37.210000'),
+('2','1','65.260163','65.260000');
 /* Scheme for table ps_order_history */
 DROP TABLE IF EXISTS `ps_order_history`;
 CREATE TABLE `ps_order_history` (
@@ -8460,10 +8477,11 @@ CREATE TABLE `ps_order_history` (
   KEY `order_history_order` (`id_order`),
   KEY `id_employee` (`id_employee`),
   KEY `id_order_state` (`id_order_state`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_order_history` VALUES
-('1','0','1','3','2020-11-06 04:46:02');
+('1','0','1','3','2020-11-06 04:46:02'),
+('2','0','2','10','2020-11-06 20:05:45');
 /* Scheme for table ps_order_invoice */
 DROP TABLE IF EXISTS `ps_order_invoice`;
 CREATE TABLE `ps_order_invoice` (
@@ -8781,10 +8799,11 @@ CREATE TABLE `ps_orders` (
   KEY `current_state` (`current_state`),
   KEY `id_shop` (`id_shop`),
   KEY `date_add` (`date_add`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_orders` VALUES
-('1','GEKGVBRKO','1','1','3','1','1','1','1','6','6','3','f3abffcb4ac61190ffc32ca33fb0112a','Płatność przy odbiorze','1.000000','ps_cashondelivery','0','0',NULL,'0',NULL,'0.000000','0.000000','0.000000','199.000000','199.000000','161.790000','199.000000','161.790000','199.000000','0.000000','0.000000','0.000000','23.000','0.000000','0.000000','0.000000','2','2','1','1','2020-11-06 04:46:02','2020-11-06 04:46:02','1','2020-11-06 04:46:02','2020-11-06 04:46:02');
+('1','GEKGVBRKO','1','1','3','1','1','1','1','6','6','3','f3abffcb4ac61190ffc32ca33fb0112a','Płatność przy odbiorze','1.000000','ps_cashondelivery','0','0',NULL,'0',NULL,'0.000000','0.000000','0.000000','199.000000','199.000000','161.790000','199.000000','161.790000','199.000000','0.000000','0.000000','0.000000','23.000','0.000000','0.000000','0.000000','2','2','1','1','2020-11-06 04:46:02','2020-11-06 04:46:02','1','2020-11-06 04:46:02','2020-11-06 04:46:02'),
+('2','EQZFYRFZF','1','1','4','1','2','3','1','7','7','10','1b7b4a4c6123d7744a16fd34a56e76b5','Płatności elektroniczne','1.000000','ps_wirepayment','0','0',NULL,'0',NULL,'0.000000','0.000000','0.000000','385.900000','385.900000','313.740000','0.000000','283.740000','349.000000','36.900000','36.900000','30.000000','23.000','0.000000','0.000000','0.000000','2','2','0','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','2020-11-06 20:05:45','2020-11-06 20:05:45');
 /* Scheme for table ps_pack */
 DROP TABLE IF EXISTS `ps_pack`;
 CREATE TABLE `ps_pack` (
@@ -9503,10 +9522,11 @@ CREATE TABLE `ps_psgdpr_log` (
   `date_add` datetime NOT NULL,
   `date_upd` datetime NOT NULL,
   PRIMARY KEY (`id_gdpr_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_psgdpr_log` VALUES
-('1','1','0','Test Testowy','0','1','2020-11-06 04:45:02','2020-11-06 04:45:02');
+('1','1','0','Test Testowy','0','1','2020-11-06 04:45:02','2020-11-06 04:45:02'),
+('2','2','0','Testa Testowa','0','1','2020-11-06 19:55:16','2020-11-06 19:55:16');
 /* Scheme for table ps_psreassurance */
 DROP TABLE IF EXISTS `ps_psreassurance`;
 CREATE TABLE `ps_psreassurance` (
@@ -10842,7 +10862,7 @@ CREATE TABLE `ps_stock_available` (
 ) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_stock_available` VALUES
-('1','1','0','1','0','35','35','0','0','2',''),
+('1','1','0','1','0','34','34','0','0','2',''),
 ('2','2','0','1','0','42','42','0','0','2',''),
 ('3','3','0','1','0','35','35','0','0','2',''),
 ('4','4','0','1','0','24','24','0','0','2',''),
@@ -10897,7 +10917,7 @@ INSERT INTO `ps_stock_available` VALUES
 ('59','2','49','1','0','7','7','0','0','2',''),
 ('60','2','50','1','0','7','7','0','0','2',''),
 ('61','2','51','1','0','7','7','0','0','2',''),
-('62','1','52','1','0','7','7','0','0','2',''),
+('62','1','52','1','0','6','7','1','0','2',''),
 ('63','1','53','1','0','7','7','0','0','2',''),
 ('64','1','54','1','0','7','7','0','0','2',''),
 ('65','1','55','1','0','7','7','0','0','2',''),
