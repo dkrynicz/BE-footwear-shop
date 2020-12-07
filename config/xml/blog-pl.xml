@@ -6,6 +6,14 @@
     <language>pl</language>
      <atom:link href="https://www.prestashop.com/pl/blog/feed.xml" rel="self" type="application/rss+xml" />
       <item>
+    <title>5 sposobów na poprawę doświadczenia Twoich klientów za pomocą cyfrowych narzędzi</title>
+    <link>https://www.prestashop.com/pl/blog/sposobow-twoich-klientow</link>
+    <description>Internet staje się powszechnym miejscem robienia zakupów – aż 73% internautów w Polsce kupowało już</description>
+     <pubDate>Mon, 07 Dec 2020 15:43:34 +0100</pubDate>
+ <dc:creator>luca mastroianni</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/pl/blog/sposobow-twoich-klientow</guid>
+  </item>
+  <item>
     <title>Paczkomat, kurier czy dron? W logistyce handlu w sieci liczy się możliwość wyboru</title>
     <link>https://www.prestashop.com/pl/blog/paczkomat-logistyce-mozliwosc</link>
     <description>Wzrost popularności zakupów online wprowadził większą różnorodność w sposobach dostawy oferowanych przez e-sklepy.</description>
@@ -76,14 +84,6 @@
      <pubDate>Thu, 05 Nov 2020 15:36:58 +0100</pubDate>
  <dc:creator>luca mastroianni</dc:creator>
  <guid isPermaLink="false">https://www.prestashop.com/pl/blog/kruk-waynet-prestashop</guid>
-  </item>
-  <item>
-    <title>E-mail marketing w 2020 roku</title>
-    <link>https://www.prestashop.com/pl/blog/email-marketing-2020</link>
-    <description>E-mail to jedna z niewielu form komunikacji, która przetrwała kilka dekad ewolucji cyfrowej bez szwanku i w 2020 roku wciąż ma się dobrze.</description>
-     <pubDate>Mon, 02 Nov 2020 11:37:46 +0100</pubDate>
- <dc:creator>luca mastroianni</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/pl/blog/email-marketing-2020</guid>
   </item>
   </channel>
 </rss>
