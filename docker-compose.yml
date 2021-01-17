@@ -14,7 +14,7 @@ services:
           - mariadb
         volumes:
             - ./presta:/var/www/html
-        #command: bash -c "sleep 20 && source /etc/apache2/envvars && /usr/sbin/apache2 && chmod -R 777 . && tail -F /dev/null"
+        command: bash -c "sleep 20 && source /etc/apache2/envvars && /usr/sbin/apache2 && chmod -R 777 . && tail -F /dev/null"
 
     mariadb:
         container_name: prestaDB
