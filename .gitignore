@@ -1,3 +1,2 @@
-var/cache/
-var/logs/
-cache/
+presta/var/cache/
+presta/var/logs/

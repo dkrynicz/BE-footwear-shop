@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+    prestashop:
+        container_name: prestaServer
+        build: 
+            context: .
+            dockerfile: serverDockerfile
+        tty: true
+        ports:
+          - 80:80
+        depends_on:
+          - mariadb
+        volumes:
+            - ./presta:/var/www/html
+        #command: bash -c "sleep 20 && source /etc/apache2/envvars && /usr/sbin/apache2 && chmod -R 777 . && tail -F /dev/null"
+
+    mariadb:
+        container_name: prestaDB
+        image: mariadb:10.4
+        ports:
+         - 3306:3306
+        volumes:
+         - ./db:/docker-entrypoint-initdb.d
+         - /var/lib/mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: prestashop
